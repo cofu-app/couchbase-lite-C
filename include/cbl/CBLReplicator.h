@@ -148,6 +148,11 @@ typedef struct {
     //-- TLS settings:
     FLSlice pinnedServerCertificate;    ///< An X.509 cert to "pin" TLS connections to (PEM or DER)
     FLSlice trustedRootCertificates;    ///< Set of anchor certs (PEM format)
+    //-- WebSocket:
+    unsigned heartbeat;                 ///< The heartbeat interval in seconds (Set 0 to use the default value, 300 seconds)
+    //-- Retry Logic:
+    int maxRetries;                     ///< Max retry attempts (Set -1 to use the default value, 9 for single-short replication and infinite for continuous replication)
+    unsigned maxRetryWaitTime;          ///< Max wait time between retrys in seconds (Set 0 to use the default value, 300 seconds)
     //-- Filtering:
     FLArray _cbl_nullable channels;                   ///< Optional set of channels to pull from
     FLArray _cbl_nullable documentIDs;                ///< Optional set of document IDs to replicate
@@ -157,8 +162,12 @@ typedef struct {
     void* _cbl_nullable context;                      ///< Arbitrary value that will be passed to callbacks
 } CBLReplicatorConfiguration;
 
-/** @} */
 
+/** Returns the default configuration, which is configured for a single-shot, push-and-pull replicator.
+    The other config values are set to null or its default value. */
+CBLReplicatorConfiguration CBLReplicatorConfiguration_Default(void) CBLAPI;
+
+/** @} */
 
 
 /** \name  Lifecycle

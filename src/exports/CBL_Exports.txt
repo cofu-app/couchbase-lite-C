@@ -168,3 +168,5 @@ CBLReplicator_AddChangeListener
 CBLReplicator_AddDocumentReplicationListener
 
 CBLDefaultConflictResolver
+
+CBLReplicatorConfiguration_Default

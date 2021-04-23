@@ -129,6 +129,7 @@ _CBLReplicator_IsDocumentPending
 _CBLReplicator_AddChangeListener
 _CBLReplicator_AddDocumentReplicationListener
 _CBLDefaultConflictResolver
+_CBLReplicatorConfiguration_Default
 _kFLNullValue
 _kFLEmptyArray
 _kFLEmptyDict

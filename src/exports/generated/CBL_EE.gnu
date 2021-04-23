@@ -129,6 +129,7 @@ CBL_C {
 		CBLReplicator_AddChangeListener;
 		CBLReplicator_AddDocumentReplicationListener;
 		CBLDefaultConflictResolver;
+		CBLReplicatorConfiguration_Default;
 		kFLNullValue;
 		kFLEmptyArray;
 		kFLEmptyDict;
